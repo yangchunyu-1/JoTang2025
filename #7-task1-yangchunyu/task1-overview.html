@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=k, initial-scale=1.0">
+    <title>概览</title>
+    <link rel="stylesheet" href="task1-overview.css">
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+        <h1>网站资源分布情况</h1>
+        <p class="subtitle">各类资源占比</p>
+        </header>
+
+        <div class="chart-content">
+            <div id="chart" class="chart-container"></div>
+            <div class="legend-container">
+                <div class="item">
+                    <div class="rsc-color" style="background-color: #6582db;"></div>
+                    <div class="rsc-name">学习资料</div>
+                    <div class="rsc-percent">40%</div>
+                </div>
+                <div class="item">
+                    <div class="rsc-color" style="background-color: #6ef689;"></div>
+                    <div class="rsc-name">娱乐推荐</div>
+                    <div class="rsc-percent">30%</div>
+                </div>
+                <div class="item">
+                    <div class="rsc-color" style="background-color: #fcdc08;"></div>
+                    <div class="rsc-name">竞赛信息</div>
+                    <div class="rsc-percent">20%</div>
+                </div>
+                <div class="item">
+                    <div class="rsc-color" style="background-color: #f17480;"></div>
+                    <div class="rsc-name">其他内容</div>
+                    <div class="rsc-percent">10%</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const chartDom = document.getElementById('chart');
+        const myChart = echarts.init(chartDom);   //在该dom元素上初始化Echarts图表实例
+        const option = {
+            title:{
+                text: '网站资源分布情况',
+                left: 'center',
+                textStyle: {
+                    fontSize: 15
+                }
+            },
+
+            tooltip: {
+                trigger: 'item',   //触发方式：数据项图形触发
+                formatter: '{b}: {c}%'
+            },
+
+            legend: {
+                data: ['学习资料','娱乐推荐','竞赛信息','其他内容'],
+                top: '10%'
+            },
+
+            series: [{
+                type: 'pie',
+                radius: '50%',
+                center: ['50%','50%'],
+                data: [
+                    {value:40, name: '学习资料'},
+                    {value:30, name: '娱乐推荐'},
+                    {value:20, name: '竞赛信息'},
+                    {value:10, name: '其他内容'}
+
+                ]
+            }]
+        };
+        myChart.setOption(option);   //使用配置项渲染图表
+    
+        myChart.on('click',function (params){   //params：事件参数对象
+            alert('您正在查看：' + params.name + ' 值为：' + params.value);
+        });
+
+        myChart.on('mouseover',function(params){       
+        });
+    </script>
+
+</body>
+</html>
