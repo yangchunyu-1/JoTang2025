@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>焦糖口袋站</title>
+    <link rel="stylesheet" href="task2.css">
+</head>
+<body>
+    <nav class="nav1">
+        <div class="navigation">
+            <div class="hdl">焦糖口袋站</div>
+            <ul class="menu">
+                <li class="item"><a href="#home" class="nav-link">首页</a></li>
+                <li class="item"><a href="task2-resource.html" class="nav-link">资源</a></li>
+                <li class="item"><a href="task1-overview.html" class="nav-link" target="_blank">概览</a></li>
+                <li class="item"><a href="#aboutus" class="nav-link"></a>关于我们</a></li>
+                <li class="item"><a href="#contactus" class="nav-link" >联系我们</a></li>
+            </ul>
+        </div>        
+    </nav>
+    <section class="intro-section">
+        <div class="intro-content">
+            <h1>欢迎来到焦糖口袋站！</h1>
+            <p class="subtitle">😍我们致力于打造温暖、和谐、互助的校园社区！😍</p>
+            <div class="intro-features">
+                <div class="feature1">
+                     <i>📚</i>
+                     <h3>分享学习资料</h3>
+                     <p>涵盖机器学习，前端，后端等各个领域</p>            
+                </div>
+                <div class="feature1">
+                    <i>🎯</i>
+                    <h3>发现有趣内容</h3>
+                    <p>每日更新校内外生活攻略</p>
+                </div>
+                <div class="feature1">
+                    <i>☕</i>
+                    <h3>掌握成长密码</h3>
+                    <p>获取最新竞赛通知和兼职信息</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="rsc-section">
+        <h2>🎉热门资源推荐🎉</h2>
+        <div class="rsc-leader">
+
+            <div class="rsc-card">
+                <div class="card-image" style="background-color: aquamarine;"></div>
+                <div class="card-content">
+                    <h3>💯学习资料💯</h3>
+                    <p>这里有关于计算机的最新学习资料！</p>
+                    <div class="card-feature">
+                        <span class="aa">前端</span>
+                        <span class="bb">后端</span>
+                        <span class="cc">机器学习</span>
+                    </div>
+                    <a href="#learning">戳我去学习→</a>
+                </div>
+            </div>
+            
+            <div class="rsc-card">
+                <div class="card-image" style="background-color: rgb(255, 187, 127);"></div>
+                <div class="card-content">
+                    <h3>🎨生活向导🎨</h3>
+                    <p>看看各年级校友的生活指南！</p>
+                    <div class="card-feature">
+                        <span class="aa">美食</span>
+                        <span class="bb">书影音</span>
+                        <span class="cc">游戏</span>
+                    </div>
+                    <a href="#life">戳我去围观→</a>
+                </div>
+            </div>
+
+            <div class="rsc-card">
+                <div class="card-image" style="background-color: rgb(255, 127, 249);"></div>
+                <div class="card-content">
+                    <h3>💪竞赛兼职💪</h3>
+                    <p>发挥碎片化时间的最大价值！</p>
+                    <div class="card-feature">
+                        <span class="aa">兼职</span>
+                        <span class="bb">竞赛</span>
+                        <span class="cc">创业经验</span>
+                    </div>
+                    <a href="#study">戳我去看看→</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="web-footer">        
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>焦糖口袋站</h3>
+                <p>最终解释权归电子科技大学-焦糖工作室所有！</p>
+                <div class="footer-link">
+                    <a href="#wechat">微信</a>
+                    <a href="#QQ">QQ</a>
+                    <a href="#bilibili">bilibili</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>联系方式</h4>
+                <p>📞:123456789</p>
+                <p>📧:123456@abc.com</p>
+                <p>📍:成都市-成华区-电子科技大学（沙河校区）-第三教学楼</p>
+            </div>
+            <div class="footer-section">
+                <h3>加入我们！欢迎你的投稿分享！</h3>
+            </div>
+       </div>
+       <div class="footer-bottom">
+        <p>©2015-2020 JoTang Studio. Design: HTML5 UP.</p>
+       </div>
+    </footer>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {   //.addEventListener()添加事件监听器  DOMContentLoaded表示HTML文档完全加载和解析完成  function(){}为匿名函数，当事件触发时执行
+        const observer = new IntersectionObserver((entries) => {   //(entries)=>{}箭头函数，当被观察元素进入视口时调用
+            entries.forEach(entry => {   //entries包含所有被观察元素信息的数组 .forEach()对每个元素执行函数
+                if (entry.isIntersecting) {   //布尔值，true代表元素进入视口
+                entry.target.classList.add('visible');   //entry.target当前被观察的DOM元素 .classlist元素class属性的接口 .add('visible')向元素添加visible类名
+            }
+        });
+    }, {
+        threshold: 0.1,  //阈值配置，0.1表示元素10%进入视口时触发
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    document.querySelectorAll('.intro-section').forEach(el => {   //选择所有匹配css选择器的元素 对每个选中的元素执行函数
+        observer.observe(el);  //开始观察指定的DOM元素 el当前遍历到的元素
+    });
+});
+</script>
+</body>
+</html>
